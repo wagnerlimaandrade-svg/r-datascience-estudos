@@ -1,0 +1,175 @@
+---
+title: "Projeto Quarto"
+format: html
+editor: visual
+---
+
+## Quarto
+
+Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see <https://quarto.org>.
+
+## Running Code
+
+When you click the **Render** button a document will be generated that includes both content and the output of embedded code. You can embed code like this:
+
+```{r}
+1 + 1
+```
+
+You can add options to executable code like this
+
+```{r}
+#| echo: false
+2 * 2
+```
+
+The `echo:`![]()`fa`
+
+```{r}
+
+```
+
+```{r}
+carlos_oliveira <- c('Carlos Oliveira', 35 , 7500.75 , '(11) 1234 5678', TRUE)
+
+maria_santos <- c('Maria Santos', 40, 8000.25 , '(21) 9876 5432', TRUE)
+
+joao_costa <- c('Joao costa', 32, 2460.80, 'Não Possui', FALSE)
+
+fernanda_lima <- c('Fernanda Lima', 27 ,4230.35, '(31) 8765-4321', TRUE)
+```
+
+```{r}
+colab_combinado <- c(ana_silva, carlos_oliveira, maria_santos, joao_costa, fernanda_lima)
+
+```
+
+```{r}
+matriz_colab <- matrix(colab_combinado, nrow = 5 , byrow = TRUE)
+
+matriz_colab
+
+```
+
+```{r}
+rownames(matriz_colab) <- c('Colaboradora Ana', 'Colaborador Carlos', 'Colaboradora Maria', 'Colaborador Joao', 'Colaboradora Fernanda' )
+
+colnames(matriz_colab) <- c('Nome', ' Idade', 'Salario' , 'Telefone' , 'Trabalho Remoto')
+
+matriz_colab
+```
+
+`lse` option disables the printing of code (only output is displayed).
+
+## Aula 2 - Manipulando os dados
+
+### Projeto da aula
+
+Nesta aula, vamos utilizar uma tabela de vendas, contendo os valores das vendas de 5 colaboradores referentes a 6 meses de vendas.
+
+```{r}
+# Vetor com valores das vendas
+vendas_jan <- c(20, 18, 25, 16, 23)
+vendas_fev <- c(15, 20, 22, 18, 19)
+vendas_mar <- c(25, 23, 20, 17, 21)
+vendas_abr <- c(18, 15, 19, 20, 24)
+vendas_mai <- c(22, 25, 21, 15, 18)
+vendas_jun <- c(21, 22, 19, 17, 20)
+```
+
+```{r}
+vendas_jan[3]
+```
+
+```{r}
+pessoas <- c("Pedro Santos", "Carla Nunes", "Maria Eduarda", "Luiz Felipe", "Julio Costa") 
+
+meses <- c("Janeiro", "Fevereiro", "Marco", "Abril", "Maio", "Junho")
+```
+
+```{r}
+
+
+# Vendas de cada pessoa por mês (em milhares)
+
+
+vendas_semestre <- c (vendas_jan, vendas_fev, vendas_mar, vendas_abr, vendas_mai, vendas_jun)
+
+matriz_vendas <- matrix (vendas_semestre, nrow =5, byrow = FALSE)
+```
+
+```{r}
+matriz_vendas
+```
+
+```{r}
+rownames(matriz_vendas) <- pessoas
+colnames(matriz_vendas) <- meses
+
+```
+
+```{r}
+matriz_vendas [4, ]
+
+```
+
+```{r}
+matriz_vendas ["Luiz Felipe",
+```
+
+```{r}
+sequencia1 <- seq(1, 10, by = 2)
+print(sequencia1)
+```
+
+```{r}
+sequencia2 <- seq (50, 1 , length.out = 10)
+print (sequencia2
+```
+
+```{r}
+# Criando uma sequência de datas de hoje a 6 meses no futuro
+sequencia_datas <- seq(Sys.Date(), by = "1 month", length.out = 6)
+
+# Imprimindo a sequência de datas
+print(sequencia_datas)
+```
+
+```{r}
+# Criando uma sequência de 0 a 1 com 5 elementos
+sequencia3 <- 0:5
+print(sequencia3)
+
+# Imprimindo a sequência
+print(sequencia3)
+```
+
+```{r}
+#decobrindo maior faturamento de vendas
+colSum(matriz_vendas)
+```
+
+```{r}
+total_colab <- rowSums(matriz_vendas)
+matriz_total_colab <- cbind(matriz_vendas,total_colab)
+
+matriz_total_colab
+
+```
+
+```{#manipulando tabela de temperaturas}
+{r}
+temperaturas <- matrix(c(25, 30, 22, 28, 18, 20, 15, 22, 28, 32, 30, 35, 10, 15, 8, 12, 28, 25, 20, 22), nrow = 4, ncol = 5, byrow = TRUE)
+
+rownames(temperaturas) <- c("1 Tri", "2 Tri", "3 Tri", "4 Tri")
+
+colnames(temperaturas) <- c("SP", "BA", "PA", "MG", "RS")
+```
+
+```{r}
+temperaturas
+```
+
+```{r}
+temperaturas['2 Tri', ]
+```

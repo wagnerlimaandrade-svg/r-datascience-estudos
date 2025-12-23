@@ -1,0 +1,114 @@
+---
+title: "aula 5"
+format: html
+editor: visual
+---
+
+#Você recebeu um conjunto de dados que representa as vendas mensais de produtos em diferentes regiões. O conjunto de dados é uma matriz chamada `dados_vendas`:
+
+```{r}
+# Matriz representando as vendas mensais (em milhares de unidades)
+dados_vendas <- matrix(c(0, 60, 45, 30, 55, 65, 40, 35, 60, 70, 55, 50), nrow = 3, byrow = TRUE)
+
+```
+
+```{r}
+# Nomes das regiões e dos meses
+regioes <- c("Norte", "Sul", "Nordeste")
+meses <- c("Jan", "Fev", "Mar", "Abr")
+
+rownames(dados_vendas) <- regioes
+colnames(dados_vendas) <- meses
+```
+
+```{r}
+dados_vendas
+```
+
+```{r}
+#Acesse o valor de vendas da região "Sul" no mês de "Fev".
+dados_vendas ['Sul', 2 ]
+```
+
+```{r}
+#Calcule o total de vendas para cada mês, utilizando a função colSums(). Armazene os resultados em um vetor chamado total_por_mes.
+
+colSums(dados_vendas)
+total_por_mes <-colSums(dados_vendas)
+```
+
+```{r}
+#Somar Linhas:Calcule o total de vendas para cada região, utilizando a função rowSums(). Armazene os resultados em um vetor chamado total_por_regiao.
+
+rowSums(dados_vendas)
+total_por_regiao <- rowSums(dados_vendas)
+
+
+
+```
+
+```{r}
+nova_regiao <- c (35, 40, 30, 25)
+dados_vendas <- rbind(dados_vendas, nova_regiao)
+rownames(dados_vendas)[4]<-"Centro-Oeste"
+dados_vendas 
+```
+
+```{r}
+library(DBI)
+```
+
+```{r}
+packageVersion("DBI")
+
+
+```
+
+```{r}
+library(nycflights13)
+```
+
+```{r}
+nycflights_sqlite
+
+```
+
+```{r}
+library(dbplyr)
+library(nycflights13)
+library(DBI)
+```
+
+```{r}
+nycflights_sqlite
+```
+
+```{r}
+con <- nycflights_sqlite()
+
+
+```
+
+```{r}
+library(DBI)
+library(RSQLite)
+library(nycflights13)
+
+```
+
+```{r}
+con <- dbConnect(RSQLite::SQLite(), ":memory:")
+```
+
+```{r}
+dbWriteTable(con, "flights", flights)
+dbWriteTable(con, "airlines", airlines)
+dbWriteTable(con, "airports", airports)
+dbWriteTable(con, "planes", planes)
+dbWriteTable(con, "weather", weather)
+
+```
+
+```{r}
+DBI::dbGetQuery(con, "SELECT COUNT(*) FROM flights")
+```
