@@ -7,3 +7,4 @@ Repositório dedicado ao estudo de R, R Markdown, SQL no R e Data Science.
 - Manipulação de dados
 - SQL com DBI / SQLite
 - R Markdown
+

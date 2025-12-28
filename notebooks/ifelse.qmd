@@ -1,0 +1,91 @@
+---
+title: "repeticoes"
+format: html
+editor: visual
+---
+
+## ifelse
+
+```{r}
+idades <- c(25, 16, 22, 30, 14)
+categorias <- ifelse(idades >= 18, "Adulto", "Jovem")
+print(categorias)
+```
+
+# notas alunos
+
+```{r}
+notas <- matrix(c(75, 45, 80, 55, 90, 65), ncol = 2)
+resultados <- ifelse(notas >= 60, "Aprovado", "Reprovado")
+print(resultados)
+```
+
+```{r}
+preco <- c(50, 100, 150, 25, 75)
+
+qtd_estoque <- c(10, 5, 20, 30, 7)
+
+preco_estoque <- c(preco, qtd_estoque)
+
+matriz_estoque <- matrix(preco_estoque, ncol = 2)
+
+rownames(matriz_estoque) <- c('Notebook', 'Tablet', 'Monitor', 'Smartphone', 'Headset')
+colnames(matriz_estoque) <- c('Preço', 'Estoque')
+
+matriz_estoque
+```
+
+#multiplicando linhas e colunas
+
+A partir dessa matriz, vamos buscar descobrir o seguinte:
+
+1-Calcular o valor total em estoque.
+
+2-Identificar produtos com estoque baixo (menos de 15 unidades).
+
+3-Classificar o valor total em estoque em alto ou baixo.
+
+4-Aplicar desconto de 10% em todos os produtos do estoque.
+
+5-Descobrir qual o produto mais vendido.
+
+--
+
+1
+
+```{r}
+
+total_estoque <- matriz_estoque[, 1] * matriz_estoque[,2]
+total_estoque                     
+```
+
+```{r}
+matriz_estoque <- cbind(matriz_estoque, total_estoque)
+
+matriz_estoque
+```
+
+2
+
+```{r}
+
+estoque_baixo <- matriz_estoque[, 2] < 15
+matriz_estoque[estoque_baixo, ]
+
+```
+
+3
+
+```{r}
+total_somado <- (colSums(matriz_estoque))
+total_somado[3]
+
+```
+
+```{r}
+if(total_somado[3] > 3000){
+  paste('total em estoqe é alto. Valor total:', total_somado[3])
+  }else {
+   paste('total em estoqe é abaixo de 3000. Valor total:', total_somado[3])
+}
+```

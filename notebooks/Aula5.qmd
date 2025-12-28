@@ -112,3 +112,7 @@ dbWriteTable(con, "weather", weather)
 ```{r}
 DBI::dbGetQuery(con, "SELECT COUNT(*) FROM flights")
 ```
+
+```{r}
+
+```

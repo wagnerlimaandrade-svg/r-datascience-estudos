@@ -1,0 +1,34 @@
+---
+title: "flights"
+format: html
+editor: visual
+---
+
+Estudando data frame
+
+```{r}
+View(flights)
+```
+
+```{r}
+str(flights)
+```
+
+```{r}
+```
+
+```{r}
+DBI::dbGetQuery(con, "SELECT * FROM flights LIMIT 10")
+```
+
+```{r}
+library(dplyr)
+
+```
+
+```{r}
+flights_jfk <- flights %>%
+  filter(origin == "JFK")
+
+View(flights_jfk)
+```
