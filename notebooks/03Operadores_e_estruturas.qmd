@@ -1,0 +1,46 @@
+---
+title: "03Operadores_e_estruturas"
+format: html
+editor: visual
+---
+
+## 03Operadores_e_estruturas
+
+A partir dessas variáveis, você irá realizar as seguintes tarefas:
+
+-   Você irá iterar sobre o vetor de velocidades de corredores, representadas em m/s, utilizando o `for`.
+
+-   Para cada corredor, você deve calcular o tempo estimado (em segundos) para percorrer a distância definida.
+
+-   Durante a iteração, verifique as seguintes condições utilizando `if()` e `else()`:
+
+    -   Se o tempo estimado for inferior a 10 segundos, imprima "Rápido!".
+
+    -   Se o tempo estimado estiver entre 10 e 20 segundos (inclusive), imprima "Bom desempenho!".
+
+    -   Se o tempo estimado for superior a 20 segundos, imprima "Desempenho a melhorar!".
+
+    -   
+
+```{r}
+# Definir a distância da corrida (metros)
+distancia <- 200
+
+# Lista de velocidades dos corredores em m/s
+velocidades <- c(5, 7, 10, 12, 15)
+```
+
+```{r}
+for (velocidade in velocidades){
+  tempo_estimado <- distancia/velocidade
+  cat("Tempo estimado:", round(tempo_estimado, 2), "segundos -")
+  
+  if (tempo_estimado < 10) {
+    cat("Rápido!\n")
+  } else if (tempo_estimado <= 20) {
+    cat("Bom desempenho!\n")
+  } else {
+    cat("Desempenho a melhorar!\n")
+  }
+}
+```

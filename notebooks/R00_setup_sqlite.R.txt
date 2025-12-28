@@ -1,0 +1,11 @@
+library(DBI)
+library(RSQLite)
+library(nycflights13)
+
+con <- dbConnect(RSQLite::SQLite(), ":memory:")
+
+dbWriteTable(con, "flights", flights)
+dbWriteTable(con, "airlines", airlines)
+dbWriteTable(con, "airports", airports)
+dbWriteTable(con, "planes", planes)
+dbWriteTable(con, "weather", weather)

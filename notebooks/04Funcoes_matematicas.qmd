@@ -1,0 +1,17 @@
+---
+title: "Funçoes Matematicas"
+format: html
+editor: visual
+---
+
+Vamos criar uma nova matriz de vendas. Dessa vez, vamos incluir a receita das vendas na matriz.
+
+A partir dessa matriz, vamos responder às seguintes :
+
+-   Quantos produtos com preço acima de 600 foram vendidos?
+
+-   Qual a receita média das vendas?
+
+-   Existe uma diferença muito grande entre a média e a mediana das receitas?
+
+-   Qual o produto mais caro e qual o mais barato?
