@@ -15,3 +15,69 @@ A partir dessa matriz, vamos responder às seguintes :
 -   Existe uma diferença muito grande entre a média e a mediana das receitas?
 
 -   Qual o produto mais caro e qual o mais barato?
+
+```{r}
+dados_vendas <- matrix(c(
+  1230.75, 20, 24615,
+  840.46, 35, 29416.10,
+  110.20, 15, 1653,
+  519.67, 10, 5196.70,
+  650.90, 25, 16272.50
+
+), ncol = 3, byrow = TRUE)
+
+rownames(dados_vendas) <- c('Ar Condicinado', 'Cama', 'Mesa', 'Refrigerador', 'Sofa')
+colnames(dados_vendas) <- c("Preco", "Quantidade", "Receita")
+
+dados_vendas
+```
+
+```{r}
+dados_vendas[dados_vendas[, 1] > 600, ]
+```
+
+```{r}
+dados_filtrados <- dados_vendas [dados_vendas[,1] > 600, ]
+
+qtd_filtrado <- sum(dados_filtrados[, 2])
+
+qtd_filtrado
+```
+
+```{r}
+```
+
+```{r}
+round(resultado_porcentagem)
+
+```
+
+```{r}
+dados_vendas [,3]
+```
+
+```{r}
+mean(dados_vendas[,3])
+```
+
+```{r}
+median(dados_vendas[,3])
+```
+
+```{r}
+maior_preco <- which.max(dados_vendas[,1])
+maior_preco
+```
+
+```{r}
+dados_vendas[maior_preco, 1]
+```
+
+```{r}
+menor_preco <- which.min(dados_vendas[,1])
+menor_preco
+```
+
+```{r}
+dados_vendas[menor_preco,1]
+```
