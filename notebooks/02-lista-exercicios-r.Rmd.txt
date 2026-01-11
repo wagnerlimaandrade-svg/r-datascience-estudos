@@ -1,0 +1,61 @@
+---
+title: "Lista de Exercícios em R - Continuação"
+author: "Estudos em R para Data Science"
+output: html_document
+---
+
+## Orientações Gerais
+- Utilize apenas pacotes base ou já apresentados em aula (como `{dplyr}` e `{ggplot2}`) quando necessário.
+- Antes de cada exercício, crie um chunk de código com `Ctrl + Alt + I` (RStudio) ou insira manualmente ` ```{r} `.
+- Sempre explique com comentários (`#`) o raciocínio utilizado.
+
+## Vetores e Operações Básicas
+1. **Sequências numéricas:** Crie um vetor `meses` com os números de 1 a 12 e:
+   - Substitua os meses de férias (janeiro e julho) por `NA`.
+   - Calcule a soma ignorando os `NA`.
+
+2. **Coerção de tipos:** Crie um vetor que combine números e caracteres e avalie o resultado com `class()` e `typeof()`. Explique a diferença.
+
+3. **Reciclagem de vetores:** Multiplique `c(2, 4, 6)` por `c(1, 0)` e interprete o aviso (se houver).
+
+## Data Frames e Manipulação de Dados
+4. **Criação de tabela:** Monte um `data.frame` chamado `turma` com as colunas `aluno`, `nota1`, `nota2` e `faltas`. Inclua ao menos 6 linhas fictícias.
+
+5. **Novas colunas:** Usando base R ou `{dplyr}`, adicione:
+   - `media` (média aritmética das notas).
+   - `situacao` ("Aprovado" se `media >= 7` e `faltas <= 5`, caso contrário "Recuperação").
+
+6. **Filtragem e ordenação:**
+   - Selecione apenas alunos em recuperação.
+   - Ordene a tabela pela `media` em ordem decrescente.
+
+7. **Resumos estatísticos:** Calcule média, mediana e desvio padrão de `media`. Compare com a função `summary()`.
+
+## Funções e Controle de Fluxo
+8. **Função de normalização:** Implemente `normalizar(x)` que devolva `(x - min(x)) / (max(x) - min(x))`. Teste com `turma$media`.
+
+9. **If/else compacto:** Escreva uma função `classificar_idade(idade)` que retorne "menor" (<18), "adulto" (18 a 64) ou "idoso" (65+). Teste com um vetor de idades.
+
+10. **Loops vs. vetorização:**
+    - Some os números de 1 a 1e6 usando `for` e `sum()`. Compare tempos com `system.time()`.
+    - Comente vantagens da abordagem vetorizada.
+
+## Tidyverse e Visualização
+11. **Transformação com `dplyr`:** Converta `turma` em tibble e crie uma tabela resumida com:
+    - Média de `media` por `situacao`.
+    - Contagem de alunos por `situacao`.
+
+12. **Gráfico simples:** Com `{ggplot2}`, faça um gráfico de barras com a contagem de alunos aprovados vs. em recuperação. Personalize títulos e cores.
+
+13. **Pipe nativo:** Reescreva o exercício 11 usando o pipe `|>` do R base (sem `%>%`).
+
+## Trabalhando com Arquivos
+14. **Leitura e escrita:**
+    - Salve `turma` em CSV (sem row names) e reabra em um novo objeto.
+    - Confirme que os tipos de colunas permanecem corretos.
+
+15. **RDS vs. CSV:** Salve o mesmo objeto em RDS e compare tamanhos de arquivo com `file.info()`. Explique vantagens de cada formato.
+
+## Extras (opcional)
+- Explore `purrr::map()` para aplicar `normalizar()` a uma lista de vetores numéricos.
+- Reproduza os exercícios em um R Markdown e gere um HTML com as respostas comentadas.
